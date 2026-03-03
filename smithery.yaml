@@ -1,0 +1,39 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - ship24ApiKey
+    properties:
+      ship24ApiKey:
+        type: string
+        description: Your Ship24 API key
+      planPerShipment:
+        type: string
+        description: Set to 'true' to enable the per-shipment Trackers endpoint
+        default: "true"
+      planPerCall:
+        type: string
+        description: Set to 'true' to enable the per-call Tracking Search endpoint
+        default: "false"
+      requestTimeoutMs:
+        type: string
+        description: HTTP request timeout in milliseconds (default 15000)
+        default: "15000"
+  commandFunction: |-
+    (config) => ({
+      command: 'npx',
+      args: ['ship24-tracking-mcp'],
+      env: {
+        SHIP24_API_KEY: config.ship24ApiKey,
+        PLAN_PER_SHIPMENT: config.planPerShipment || 'true',
+        PLAN_PER_CALL: config.planPerCall || 'false',
+        REQUEST_TIMEOUT_MS: config.requestTimeoutMs || '15000'
+      }
+    })
+  exampleConfig:
+    ship24ApiKey: your_api_key_here
+    planPerShipment: "true"
+    planPerCall: "false"
