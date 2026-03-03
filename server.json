@@ -1,0 +1,52 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.ship24-official/ship24-tracking",
+  "description": "MCP server for shipment tracking. Track parcels by tracking number with real-time status, event history, carrier detection, and location information.",
+  "repository": {
+    "url": "https://github.com/ship24-official/ship24-tracking-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "ship24-tracking-mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "SHIP24_API_KEY",
+          "description": "Your Ship24 API key",
+          "required": true
+        },
+        {
+          "name": "PLAN_PER_SHIPMENT",
+          "description": "Set to 'true' to enable the per-shipment Trackers endpoint (for per-shipment plan subscribers)",
+          "required": false
+        },
+        {
+          "name": "PLAN_PER_CALL",
+          "description": "Set to 'true' to enable the per-call Tracking Search endpoint (for per-call plan subscribers)",
+          "required": false
+        },
+        {
+          "name": "SHIP24_BASE_URL",
+          "description": "Override the Ship24 API base URL (default: https://api.ship24.com/public/v1)",
+          "required": false
+        },
+        {
+          "name": "REQUEST_TIMEOUT_MS",
+          "description": "HTTP request timeout in milliseconds (default: 15000)",
+          "required": false
+        },
+        {
+          "name": "COURIERS_CACHE_TTL_HOURS",
+          "description": "How long to cache the couriers list in hours (default: 24)",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "ship24-tracking-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for shipment tracking. Track parcels by tracking number with real-time status, event history, carrier detection, and location information.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "ship24-tracking-mcp": "index.js"
+  },
+  "mcpName": "io.github.ship24-official/ship24-tracking",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ship24-official/ship24-tracking-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ship24",
+    "tracking",
+    "shipment",
+    "parcel",
+    "logistics",
+    "courier"
+  ],
+  "author": "Ship24 <contact@ship24.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^3.22.0"
+  }
+}
